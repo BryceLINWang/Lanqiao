@@ -60,7 +60,19 @@ public class 生命游戏 {
                    if(savecell.contains(new Point(dx,dy))){
                        surcells++;
                    }else {
-
+                    if (!nsavecell.contains(new Point(dx,dy))){
+                     int surpoint=0;
+                     for(int k=0;k<8;k++){
+                         int dxx=dx+dirX[k];
+                         int dyy=dy+dirY[k];
+                         if (savecell.contains(new Point(dxx,dyy))){
+                             surpoint++;
+                         }
+                     }
+                     if(surpoint==3){
+                         nsavecell.add(new Point(dx,dy));
+                     }
+                    }
                    }
                }
                if(surcells==2||surcells==3){//周围细胞2或3延续
